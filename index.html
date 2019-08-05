@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./dist/css/simplelightbox.min.css">
+    <link rel="stylesheet" href="./dist/css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/5eeeb0b326.js"></script>
+
+    <title>Pleno</title>
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <h1 class="logo">Pleno</h1>
+            <ul class="nav">
+                <li>
+                    <a href="#home" target="_blank" rel="noopener noreferrer">HOME</a>
+                </li>
+                <li>
+                    <a href="#about" target="_blank" rel="noopener noreferrer">ABOUT</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Showcase -->
+    <section class="section-a">
+        <div class="container">
+            <div>
+                <h1> Better Next Headphones</h1>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis voluptates hic ipsa porro ad odit veritatis excepturi soluta esse. Mollitia molestias aut officia at, nostrum reiciendis ullam consequatur quae velit.</p>
+                <a class="btn" data-delay=".3s" href="#">Read More</a>
+            </div>
+            <div>
+                <img src="./dist/images/Headphone-showcase.jpg" alt="" />
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Overlay -->
+
+    <section class="section-b">
+        <div class="overlay">
+            <div class="section-b-inner">
+                <h3>Clear & Loud</h3>
+                <h2>Without Music, Life Would be a Mistake</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsa ipsam omnis libero quia unde at reiciendis atque, eum ut totam.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section c -->
+    <section class="section-c">
+        <div class="gallery">
+            <a href="./dist/images/1.jpg" class="anim" data-delay="0.2s">
+                <img src="./dist/images/1.jpg" alt="">
+            </a>
+            <a href="./dist/images/2.jpg" class="anim" data-delay="0.2s">
+                <img src="./dist/images/2.jpg" alt="">
+            </a>
+            <a href="./dist/images/3.jpg" class="anim" data-delay="0.2s">
+                <img src="./dist/images/3.jpg" alt="">
+            </a>
+            <a href="./dist/images/4.jpg" class="anim" data-delay="0.2s">
+                <img src="./dist/images/4.jpg" alt="">
+            </a>
+            <a href="./dist/images/5.jpg" class="anim" data-delay="0.2s">
+                <img src="./dist/images/5.jpg" alt="">
+            </a>
+            <a href="./dist/images/6.jpg" class="anim" data-delay="0.2s">
+                <img src="./dist/images/6.jpg" alt="">
+            </a>
+        </div>
+    </section>
+
+    <!-- Fotter -->
+    <footer class="footer-section">
+        <div class="container">
+            <div>
+                <h2>
+                    Better One
+                </h2>
+                <a href="https://www.facebook.com">
+                    <i class="fab fa-facebook fa-2x"></i>
+                </a>
+                <a href="https://www.twitter.com/">
+                    <i class="fab fa-twitter fa-2x"></i>
+                </a>
+                <a href="https://www.linkedin.com/">
+                    <i class="fab fa-linkedin fa-2x"></i>
+                </a>
+            </div>
+
+            <div>
+                <h3>Company Info</h3>
+                <ul>
+                    <li><a href="#">All Products</a></li>
+                    <li>
+                        <a href="#">About Us</a>
+                    </li>
+                    <li>
+                        <a href="#">privacy Policy</a>
+                    </li>
+                    <li>
+                        <a href="#">Terms of Services</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <h3>
+                    Blog Posts
+                </h3>
+                <ul>
+                    <li><a href="#">Lorem ipsum dolor sit.</a></li>
+                    <li><a href="#">Lorem ipsum dolor sit.</a></li>
+                    <li><a href="#">Lorem ipsum dolor sit.</a></li>
+                    <li><a href="#">Lorem ipsum dolor sit.</a></li>
+                </ul>
+
+            </div>
+            <div>
+                <h3 class="subscribe">
+                    Subscribe
+                </h3>
+                <p>Well Experienced in Convert HTML Emails from Design Files.</p>
+                <form method="post" name="email-form" data-netlify="true">
+                    <div class="email-form">
+                        <span class="form-control-wrap">
+                            <input type="email" name="email" id="email" size="40" class="form-control" placeholder="Email">
+                        </span>
+
+                        <button type="submit" value="Submit" class="form-control submit">
+                            <i class="fas fa-chevron-right"></i> </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Script tags -->
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js" integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44=" crossorigin="anonymous"></script>
+    <script src="./dist/js/simple-lightbox.min.js"></script>
+    <script>
+        $(function() {
+            const $gallery = $('.gallery a').simpleLightbox();
+        });
+    </script>
+    <script>
+        const images = document.querySelectorAll('.anim');
+        observer = new IntersectionObserver((entries) => {
+
+            entries.forEach(entry => {
+                if (entry.intersectionRatio > 0) {
+                    entry.target.style.animation = ` animate1 2s ${entry.target.dataset.delay} forwards ease-out`;
+                } else {
+                    entry.target.style.animation = 'none';
+                }
+            })
+
+        })
+
+        images.forEach(image => {
+            observer.observe(image);
+        })
+    </script>
+</body>
+
+</html>
